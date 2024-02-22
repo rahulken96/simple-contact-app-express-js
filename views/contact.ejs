@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-8">
+    <h2>Daftar Kontak : </h2>
+    <a href="/contact/add" class="btn btn-primary m-2">Tambah Kontak</a>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">No. </th>
+          <th scope="col">Nama</th>
+          <th scope="col">No. HP</th>
+          <th scope="col">Aksi</th>
+        </tr>
+      </thead>
+      <% if (!contacts.length < 1) { %>
+        <tbody>
+          <% contacts.forEach((contact, i) => { %>
+            <tr>
+              <th scope="row"><%= i+1 %></th>
+              <td><%= contact.nama %></td>
+              <td><%= contact.noHP %></td>
+              <td>
+                <a href="/contact/<%= contact.nama %>" class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> Detail</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      <% } else { %>
+        <tbody>
+          <tr>
+            <td colspan="4" class="text-center text-danger fw-bold">Daftar Kontak Kosong.</td>
+          </tr>
+        </tbody>
+      <% } %>
+      </table>
+  </div>
+</div>
